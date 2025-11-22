@@ -22,10 +22,10 @@ Widget mobileScreen() {
   return SingleChildScrollView(
     child: Column(
       children: [
-        Container(height: 150, width: 400, color: Colors.blue[100]),
-        Container(height: 150, width: 400, color: Colors.blue[200]),
-        Container(height: 150, width: 400, color: Colors.blue[300]),
-        Container(height: 150, width: 400, color: Colors.blue[400]),
+        Container(height: 200, width: 400, color: Colors.blue[100]),
+        Container(height: 200, width: 400, color: Colors.blue[200]),
+        Container(height: 200, width: 400, color: Colors.blue[300]),
+        Container(height: 200, width: 400, color: Colors.blue[400]),
       ],
     ),
   );
@@ -36,24 +36,32 @@ Widget tabScreen() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          height: 800, 
-          width: 300, 
-          color: Colors.blue[200]
+        Expanded(
+          flex: 2,
+          child: Container(
+            height: 800, 
+            width: 300, 
+            color: Colors.blue[200]
+          ),
         ),
-        Column(
-          children: [
-            Container(
-          height: 300, 
-          width: 500, 
-          color: Colors.blue[300]
-        ),
-        Container(
-          height: 350, 
-          width: 500, 
-          color: Colors.blue[400]
-        ),
-          ],
+        Expanded(
+          flex: 5,
+          child: Column(
+            children: [
+              Expanded(    
+                child: Container(
+                          height: 300,  
+                          color: Colors.blue[300]
+                        ),
+              ),
+              Expanded(
+                child: Container(
+                  height: 350, 
+                  color: Colors.blue[400]
+                ),
+              ),
+            ],
+          ),
         )
       ],
     ),
