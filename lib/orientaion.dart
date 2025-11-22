@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Orient extends StatefulWidget {
+  const Orient({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Orient> createState() => _OrientState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _OrientState extends State<Orient> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    //double screenHeight = MediaQuery.of(context).size.height;
-    // final screenOrientation = MediaQuery.of(context).orientation;
-
-    return Scaffold(body: screenWidth < 600 ? mobileScreen() : tabScreen());
+     final screenOrientation = MediaQuery.of(context).orientation;
+    return Scaffold(
+      body: screenOrientation == Orientation.portrait ? mobileScreen() : tabScreen()
+    );
   }
 }
 
@@ -49,15 +48,13 @@ Widget tabScreen() {
           child: Column(
             children: [
               Expanded(    
-                child: 
-                Container(
-                  height: 300,  
-                  color: Colors.blue[300]
-                ),
+                child: Container(
+                          height: 300,  
+                          color: Colors.blue[300]
+                        ),
               ),
               Expanded(
-                child: 
-                Container(
+                child: Container(
                   height: 350, 
                   color: Colors.blue[400]
                 ),
@@ -69,3 +66,5 @@ Widget tabScreen() {
     ),
   );
 }
+  
+  
